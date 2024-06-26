@@ -27,6 +27,7 @@ export default function TextForm(props) {
         let newText = document.getElementById("myBox");
         newText.select();
         navigator.clipboard.writeText(newText.value);
+        document.getSelection().removeAllRanges();
         props.showAlert("Copy to clipboard", "success")
     }
 
@@ -38,12 +39,12 @@ export default function TextForm(props) {
 
     const Speak = () => {
         if (window.speechSynthesis.speaking) {
-            window.speechSynthesis.cancel(); // Stop any ongoing speech
+            window.speechSynthesis.cancel();
             setIsSpeaking(false);
         } else {
             let newText = new SpeechSynthesisUtterance();
             newText.text = text;
-            newText.onend = () => setIsSpeaking(false); // Update state when speech ends
+            newText.onend = () => setIsSpeaking(false);
             window.speechSynthesis.speak(newText);
             setIsSpeaking(true);
         }
@@ -77,19 +78,19 @@ export default function TextForm(props) {
                     <h1 className='mb-2'>{props.heading}</h1>
                     <textarea className="form-control" value={text} style={{ backgroundColor: props.mode === 'dark' ? '#4c6578' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }} onChange={handleOnChange} id="myBox" rows="8"></textarea>
                 </div>
-                <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" style={{ border: props.mode === 'dark' ? '#75b798' : '#f0880d', backgroundColor: props.mode === 'dark' ? '#75b798' : '#f0880d' }} onClick={handleUpClick}>Convert to Uppercase</button>
-                <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" style={{ border: props.mode === 'dark' ? '#75b798' : '#f0880d', backgroundColor: props.mode === 'dark' ? '#75b798' : '#f0880d' }} onClick={handleClClick}>Clear Text</button>
-                <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" style={{ border: props.mode === 'dark' ? '#75b798' : '#f0880d', backgroundColor: props.mode === 'dark' ? '#75b798' : '#f0880d' }} onClick={handleLwClick}>Convert to Lowercase</button>
-                <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" style={{ border: props.mode === 'dark' ? '#75b798' : '#f0880d', backgroundColor: props.mode === 'dark' ? '#75b798' : '#f0880d' }} onClick={Speak}>Speak</button>
-                <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" style={{ border: props.mode === 'dark' ? '#75b798' : '#f0880d', backgroundColor: props.mode === 'dark' ? '#75b798' : '#f0880d' }} onClick={handleCopy}>Copy Text</button>
-                <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" style={{ border: props.mode === 'dark' ? '#75b798' : '#f0880d', backgroundColor: props.mode === 'dark' ? '#75b798' : '#f0880d' }} onClick={removeExtraSpaces}>Remove Extra Spaces</button>
-                <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" style={{ border: props.mode === 'dark' ? '#75b798' : '#f0880d', backgroundColor: props.mode === 'dark' ? '#75b798' : '#f0880d' }} onClick={capitalizeFirstLetter}>Capitalize First Letter</button>
+                <button disabled={text.length === 0} className="btn btn-primary mx-2 my-1" style={{ border: props.mode === 'dark' ? '#75b798' : '#f0880d', backgroundColor: props.mode === 'dark' ? '#75b798' : '#f0880d' }} onClick={handleUpClick}>Convert to Uppercase</button>
+                <button disabled={text.length === 0} className="btn btn-primary mx-2 my-1" style={{ border: props.mode === 'dark' ? '#75b798' : '#f0880d', backgroundColor: props.mode === 'dark' ? '#75b798' : '#f0880d' }} onClick={handleClClick}>Clear Text</button>
+                <button disabled={text.length === 0} className="btn btn-primary mx-2 my-1" style={{ border: props.mode === 'dark' ? '#75b798' : '#f0880d', backgroundColor: props.mode === 'dark' ? '#75b798' : '#f0880d' }} onClick={handleLwClick}>Convert to Lowercase</button>
+                <button disabled={text.length === 0} className="btn btn-primary mx-2 my-1" style={{ border: props.mode === 'dark' ? '#75b798' : '#f0880d', backgroundColor: props.mode === 'dark' ? '#75b798' : '#f0880d' }} onClick={Speak}>Speak</button>
+                <button disabled={text.length === 0} className="btn btn-primary mx-2 my-1" style={{ border: props.mode === 'dark' ? '#75b798' : '#f0880d', backgroundColor: props.mode === 'dark' ? '#75b798' : '#f0880d' }} onClick={handleCopy}>Copy Text</button>
+                <button disabled={text.length === 0} className="btn btn-primary mx-2 my-1" style={{ border: props.mode === 'dark' ? '#75b798' : '#f0880d', backgroundColor: props.mode === 'dark' ? '#75b798' : '#f0880d' }} onClick={removeExtraSpaces}>Remove Extra Spaces</button>
+                <button disabled={text.length === 0} className="btn btn-primary mx-2 my-1" style={{ border: props.mode === 'dark' ? '#75b798' : '#f0880d', backgroundColor: props.mode === 'dark' ? '#75b798' : '#f0880d' }} onClick={capitalizeFirstLetter}>Capitalize First Letter</button>
 
             </div>
             <div className="container my-3" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
                 <h2>Your text summary</h2>
-                <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} characters</p>
-                <p>{0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes read</p>
+                <p>{text.split(" ").filter((element) => { return element.length !== 0 }).length} words and {text.length} characters</p>
+                <p>{0.008 * text.split(" ").filter((element) => { return element.length !== 0 }).length} Minutes read</p>
                 <h2>Preview</h2>
                 <p>{text.length > 0 ? text : "Nothing to preview!"}</p>
             </div>
