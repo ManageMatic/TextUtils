@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# TextUtils - Premium Text Workspace & Telemetry Analyzer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**TextUtils** is a blazing-fast, feature-rich, serverless text workspace designed for authors, editors, developers, and students. Built with **React 18 + Vite**, the application provides real-time casing transformations, offline voice-to-text dictation, customizable text-to-speech readouts, and mathematical readability diagnostics in a gorgeous, fully responsive **glassmorphic design**.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## ✨ Features Breakdown
 
-### `npm start`
+### 🛠️ 1. Text Transformation Utilities
+- **Standard Conversions**: Instant casing shifts to `UPPERCASE` and `lowercase`.
+- **Typographical Casing**: `Title Case` (caps on every word) and `Sentence Case` (caps on sentence starts).
+- **SEO & URLs**: `Slugify URL` (converts strings to clean kebab-case URL safe formats).
+- **Encoding/Decoding Suite**: Fully integrated client-side **Base64** and **URL** encoders and decoders.
+- **Spacing Cleaner**: Removes multiple spacing layouts in a single click.
 
-Runs the app in the development mode.\
+### 🎙️ 2. Integrated Speech Center
+- **Voice Dictation (Speech-to-Text)**: Standard offline microphone dictation using the Web Speech API, with active pulsing waves when listening.
+- **Speech Synthesis Control Console**: Read typed text out loud with configurable voice selector models, pitch sliders, and speed/rate dials.
+
+### 📊 3. Telemetry & Diagnostics
+- **Live Counters**: Counts words, characters, non-spaced characters, lines, and paragraphs.
+- **Flesch Reading Ease Index**: Runs an offline syllable-counting algorithm to assess reading difficulty levels.
+- **Keyword Density Tracker**: Live weight parser analyzing terms to extract the top 5 keywords, mapped on percentage-based progress meters.
+- **Draft Session Logs**: LocalStorage draft history logs saving drafts upon clearing, allowing one-click restore.
+
+### 🎨 4. Premium Theme System & Layout
+- **Glassmorphic Layout Cards**: Translucent backdrops, indigo neon borders, and shadow gradients.
+- **Contrast-Aware Dark Mode**: Highly custom indigo/obsidian dark environment that respects text contrasts.
+- **Enterprise Responsiveness**: Fits smoothly across viewports from compact `320px` smartphones up to wide-screen monitors.
+
+---
+
+## 📁 Organized Project Structure
+
+```bash
+managematic-textutils/
+├── public/                 # Static assets (logo vectors, icons, manifests)
+│   ├── favicon.png         # Custom generated purple sheet branding logo
+│   └── site.webmanifest
+├── src/
+│   ├── assets/             # Raw vector illustrations
+│   │   └── logo.svg
+│   ├── components/         # Reusable UI fragments
+│   │   ├── Navbar.jsx      # Sticky navbar with moon/sun toggle
+│   │   └── Alert.jsx       # Floating absolute-positioned toast notifications
+│   ├── pages/              # Main page controllers
+│   │   ├── Home.jsx        # Split-screen text analyzer dashboard
+│   │   └── About.jsx       # Custom animated grid feature board
+│   ├── styles/             # Modular style sheets
+│   │   ├── index.css       # Core theme variables, buttons, scrollbars
+│   │   └── App.css         # Animations, toast nodes, dictation waves
+│   ├── App.jsx             # Core entry router and theme hooks
+│   └── index.jsx           # ReactDOM application mounting hook
+├── index.html              # Modular entry template link (Vite standard)
+├── vite.config.js          # Fast React compilation config
+└── package.json            # Vite configurations and dependencies
+```
+
+---
+
+## 🚀 Available Development Scripts
+
+In the project root directory, you can execute the following commands in your shell:
+
+### `npm run dev`
+Launches the hot-reloading development server.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `npm run build`
+Compiles and bundles the entire application for production into the `dist/` directory.\
+It utilizes Vite's Rollup configuration to minify assets and separate CSS files under **560ms**.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `npm run preview`
+Runs a production build preview server locally, helping you inspect bundled assets on port `3000`.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🔒 Privacy & Serverless Design
+All calculations, casing encoders, syllable algorithms, voice recognition scripts, and drafts logs run **entirely client-side inside your browser sandbox**. No keystrokes, texts, or recordings are ever shared or transmitted over external networks. TextUtils is highly secure and fully private.
