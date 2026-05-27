@@ -1,0 +1,259 @@
+:root {
+  --font-primary: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  --font-secondary: 'Plus Jakarta Sans', sans-serif;
+  
+  /* Light Theme Variables */
+  --bg-primary: #f1f5f9;
+  --bg-secondary: #ffffff;
+  --bg-glass: rgba(255, 255, 255, 0.7);
+  --border-color: rgba(226, 232, 240, 0.8);
+  --border-glow: rgba(79, 70, 229, 0.08);
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --accent-primary: #4f46e5;
+  --accent-secondary: #6366f1;
+  --accent-hover: #4338ca;
+  --accent-gradient: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+  --success-color: #10b981;
+  --success-bg: rgba(16, 185, 129, 0.1);
+  --success-border: rgba(16, 185, 129, 0.2);
+  --card-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+  --accent-light: rgba(79, 70, 229, 0.05);
+}
+
+[data-theme="dark"] {
+  /* Dark Theme Variables */
+  --bg-primary: #070a13;
+  --bg-secondary: #0f1424;
+  --bg-glass: rgba(15, 20, 36, 0.65);
+  --border-color: rgba(255, 255, 255, 0.05);
+  --border-glow: rgba(99, 102, 241, 0.15);
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --accent-primary: #6366f1;
+  --accent-secondary: #818cf8;
+  --accent-hover: #4f46e5;
+  --accent-gradient: linear-gradient(135deg, #6366f1 0%, #818cf8 100%);
+  --success-color: #34d399;
+  --success-bg: rgba(52, 211, 153, 0.1);
+  --success-border: rgba(52, 211, 153, 0.2);
+  --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 4px 12px -5px rgba(0, 0, 0, 0.3);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  --accent-light: rgba(99, 102, 241, 0.08);
+}
+
+/* Global Reset & Typography */
+body {
+  margin: 0;
+  font-family: var(--font-primary);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 600px;
+  background: radial-gradient(circle at 50% -100px, rgba(99, 102, 241, 0.15), transparent 60%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Typography styles */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Glassmorphism Container Card */
+.glass-card {
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  box-shadow: var(--glass-shadow);
+  padding: 24px;
+  transition: transform 0.2s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.glass-card:hover {
+  box-shadow: var(--card-shadow), 0 0 20px var(--border-glow);
+  border-color: rgba(99, 102, 241, 0.15);
+}
+
+/* Sleek Buttons styling */
+.btn-premium {
+  background: var(--accent-gradient);
+  color: white !important;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 20px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  box-shadow: 0 4px 14px 0 rgba(99, 102, 241, 0.3);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.btn-premium:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px 0 rgba(99, 102, 241, 0.45);
+  filter: brightness(1.05);
+}
+
+.btn-premium:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-premium:disabled {
+  background: var(--border-color);
+  color: var(--text-muted) !important;
+  opacity: 0.7;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.btn-premium-secondary {
+  background: var(--bg-secondary);
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 10px 20px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.btn-premium-secondary:hover:not(:disabled) {
+  background: var(--accent-light);
+  border-color: var(--accent-primary);
+  transform: translateY(-2px);
+}
+
+.btn-premium-secondary:disabled {
+  background: transparent;
+  border-color: var(--border-color);
+  color: var(--text-muted) !important;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Beautiful custom range and inputs */
+.form-control-premium {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  color: var(--text-primary);
+  padding: 12px 16px;
+  transition: all 0.3s ease;
+  font-family: var(--font-secondary);
+}
+
+.form-control-premium:focus {
+  background: var(--bg-secondary);
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+  color: var(--text-primary);
+  outline: none;
+}
+
+.form-control-premium::placeholder {
+  color: var(--text-muted);
+  opacity: 0.85;
+}
+
+/* Scrollbar customizations */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Custom styles for Speak settings and meters */
+.progress-premium {
+  height: 8px;
+  background-color: var(--border-color);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar-premium {
+  background: var(--accent-gradient);
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+@media (max-width: 991px) {
+  .main-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* Mobile Viewport Breakpoint Adjustments (xs / sm) */
+@media (max-width: 575px) {
+  .glass-card {
+    padding: 16px;
+    border-radius: 16px;
+  }
+  .tool-grid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 8px;
+    margin-top: 12px;
+    margin-bottom: 16px;
+  }
+  .btn-premium, .btn-premium-secondary {
+    padding: 8px 12px;
+    font-size: 0.88rem;
+    border-radius: 10px;
+  }
+  .navbar-brand-premium {
+    font-size: 1.2rem;
+  }
+  .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  h1.h3 {
+    font-size: 1.35rem;
+  }
+}
