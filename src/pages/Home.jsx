@@ -37,7 +37,7 @@ export default function TextForm(props) {
 
   // Load History from LocalStorage on mount
   useEffect(() => {
-    const savedHistory = localStorage.getItem('textutils_history');
+    const savedHistory = localStorage.getItem('textcraft_history');
     if (savedHistory) {
       setHistory(JSON.parse(savedHistory));
     }
@@ -56,7 +56,7 @@ export default function TextForm(props) {
     };
     const updated = [newEntry, ...history.slice(0, 9)]; // limit to 10 entries
     setHistory(updated);
-    localStorage.setItem('textutils_history', JSON.stringify(updated));
+    localStorage.setItem('textcraft_history', JSON.stringify(updated));
   };
 
   const handleOnChange = (event) => {
@@ -168,7 +168,7 @@ export default function TextForm(props) {
 
   const clearHistory = () => {
     setHistory([]);
-    localStorage.removeItem('textutils_history');
+    localStorage.removeItem('textcraft_history');
     props.showAlert("Draft history cleared", "success");
   };
 
@@ -272,7 +272,7 @@ export default function TextForm(props) {
     const element = document.createElement("a");
     const file = new Blob([text], { type: 'text/plain;charset=utf-8' });
     element.href = URL.createObjectURL(file);
-    element.download = "textutils_export.txt";
+    element.download = "textcraft_export.txt";
     document.body.appendChild(element);
     element.click();
     document.body.removeChild(element);
@@ -288,7 +288,7 @@ export default function TextForm(props) {
     printWindow.document.write(`
       <html>
         <head>
-          <title>TextUtils Print Export</title>
+          <title>TextCraft Print Export</title>
           <style>
             body { font-family: sans-serif; padding: 40px; color: #333; line-height: 1.6; }
             h1 { border-bottom: 2px solid #6366f1; padding-bottom: 10px; color: #6366f1; }
@@ -296,7 +296,7 @@ export default function TextForm(props) {
           </style>
         </head>
         <body>
-          <h1>TextUtils Document</h1>
+          <h1>TextCraft Document</h1>
           <div class="content">${text}</div>
           <script>window.print();</script>
         </body>

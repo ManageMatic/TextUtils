@@ -1,6 +1,6 @@
-# TextUtils - Premium Text Workspace & Telemetry Analyzer
+# TextCraft - Premium Text Workspace & Telemetry Analyzer
 
-**TextUtils** is a blazing-fast, feature-rich, serverless text workspace designed for authors, editors, developers, and students. Built with **React 18 + Vite**, the application provides real-time casing transformations, offline voice-to-text dictation, customizable text-to-speech readouts, and mathematical readability diagnostics in a gorgeous, fully responsive **glassmorphic design**.
+**TextCraft** is a blazing-fast, feature-dense text workspace designed for authors, editors, developers, and students. Built with **React 18 + Vite**, the application provides real-time casing transformations, offline voice-to-text dictation, customizable text-to-speech readouts, and mathematical readability diagnostics in a gorgeous, fully responsive **glassmorphic design**.
 
 ---
 
@@ -33,7 +33,7 @@
 ## 📁 Organized Project Structure
 
 ```bash
-managematic-textutils/
+textcraft/
 ├── public/                 # Static assets (logo vectors, icons, manifests)
 │   ├── favicon.png         # Custom generated purple sheet branding logo
 │   └── site.webmanifest
@@ -76,4 +76,4 @@ Runs a production build preview server locally, helping you inspect bundled asse
 ---
 
 ## 🔒 Privacy & Serverless Design
-All calculations, casing encoders, syllable algorithms, voice recognition scripts, and drafts logs run **entirely client-side inside your browser sandbox**. No keystrokes, texts, or recordings are ever shared or transmitted over external networks. TextUtils is highly secure and fully private.
+All calculations, casing encoders, syllable algorithms, voice recognition scripts, and drafts logs run **entirely client-side inside your browser sandbox**. No keystrokes, texts, or recordings are ever shared or transmitted over external networks. TextCraft is highly secure and fully private.

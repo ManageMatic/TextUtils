@@ -31,11 +31,11 @@ function App() {
 
   return (
     <>
-      <Router>
-        <Navbar title="ManageMatic TextUtils" about="About" mode={mode} toggleMode={toggleMode} />
+      <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+        <Navbar title="TextCraft" about="About" mode={mode} toggleMode={toggleMode} />
         <div className="container my-4">
           <Routes>
-            <Route path="/" element={<Home showAlert={showAlert} heading="Try TextUtils - Word counter, Character counter, Remove extra spaces" mode={mode} />} />
+            <Route path="/" element={<Home showAlert={showAlert} heading="Try TextCraft - Modern Text Workspace & Reading Analytics" mode={mode} />} />
             <Route path="/about" element={<About mode={mode} />} />
           </Routes>
         </div>
